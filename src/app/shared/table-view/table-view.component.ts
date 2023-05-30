@@ -15,22 +15,20 @@ import { Router } from '@angular/router';
 
 
 export class TableViewComponent  {
-displayActivePage($event: Event) {
-throw new Error('Method not implemented.');
-}
-  @Input() booksList: Book[] = [];
-  @Input() subjectName: string = '';
-  searchValue : string = "";
-  isSearched : boolean = false;
-  totalPages : number = 1;
-  startIndex : number = 0;
-  endIndex : number = 10;
 
-  page:number=1;
-  count:number=0;
+  @Input() booksList: Book[] = [];
+  @Input() subjectName = '';
+  searchValue  = "";
+  isSearched  = false;
+  totalPages  = 1;
+  startIndex  = 0;
+  endIndex  = 10;
+
+  page=1;
+  count=0;
   
   
-  tableSize : number = 10;
+  tableSize  = 10;
   tableSizes : any = [5,10,15,20];
 
 
