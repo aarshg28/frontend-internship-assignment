@@ -35,17 +35,19 @@
 
         
 
-          <div class="paging-container">
+          <!-- <div class="paging-container">
             <a (click)="previous()" class="prev">&lt;</a>
             <div *ngFor="let item of [].constructor(totalPages); let i = index" ><a class="page active" (click)="pageIndexed(i+1)">{{i+1}}</a></div>
             <a (click)="next()" class="next">&gt;</a>
             
-          </div> 
-          <!--<div class="paging-container">
+          </div>  -->
+          <div class="paging-container">
           <div *ngFor="let item of [].constructor(totalPages)| paginate: { itemsPerPage: tableSize, currentPage:page , totalItems:count } ; let i = index ">
           </div>
           <pagination-controls previousLabel="Prev" (pageChange)="onTableDataChange($event)" nextLabel="Next"  class="float-right"></pagination-controls>
-         </div> -->
+         </div> 
+         
+
           <div class="tw-m-24-px">
             <div class="tw-mb-24-px tw-text-24-px">
               <div button class="back" (click)="goToHome()">Back</div>

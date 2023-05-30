@@ -1,8 +1,9 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Book } from 'src/app/core/models/book-response.model';
 import { SubjectsService } from 'src/app/core/services/subjects.service';
 import { Router } from '@angular/router';
+import DataTables from 'datatables.net';
 
 
 @Component({
@@ -14,8 +15,11 @@ import { Router } from '@angular/router';
 })
 
 
-export class TableViewComponent  {
+export class TableViewComponent {
+  
+  
 
+  
   @Input() booksList: Book[] = [];
   @Input() subjectName = '';
   searchValue  = "";
@@ -38,7 +42,8 @@ export class TableViewComponent  {
     private route: ActivatedRoute,
     
   ) { }
-
+  
+  
   goToHome(){
     this.router.navigate(['/']);
   }
