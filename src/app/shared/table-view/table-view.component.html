@@ -1,26 +1,59 @@
-<div class="tw-m-24-px">
-  <div class="tw-mb-24-px tw-text-24-px"> Top {{ booksList.length }} book{{ booksList.length > 1 ? "s" : "" }} on {{ subjectName }}</div>
+      <div class="tw-m-24-px">
+        <div class="tw-mb-24-px tw-text-24-px"> Top {{ booksList.length }} book{{ booksList.length > 1 ? "s" : "" }} on {{ subjectName }}</div>
+        <div class="search-container">
+          <input [(ngModel)]="searchValue" type="text">
+          <button *ngIf="!isSearched" type="submit" (click)="searchTable()">Search</button>
+          <button *ngIf="isSearched" (click)="clear()">Clear</button>
+        </div>
+      
+        <ng-container> 
+          <table class="table-view">
+            <thead>
+              <tr class="table-row">
+                <th class="header">Title and Sub Title</th>
+                <th class="header">Author</th>
+                <th class="header">First Publish Year</th>
+              </tr>
+            </thead>
+            <tbody class="table-body">
+              <tr *ngFor="let book of booksList  | slice:startIndex:endIndex; let i=index" class="row-data">
+                <td>
+                  <a class="tw-no-underline" href="https://openlibrary.org{{book.key}}" target="_blank">{{ book.title }}</a>
+                </td>
+                <td>
+                  <span *ngIf="!isSearched">
+                    {{book.authors[0].name != "" ? book.authors[0].name : "Unknown"}}
+                  </span>
+                  <span *ngIf="isSearched && book.author_name != null && book.author_name != undefined && book.author_name.length > 0">
+                    {{book.author_name[0] != "" ? book.author_name[0] : "Unknown"}}
+                  </span>
+                  </td>
+                <td>{{ book?.first_publish_year }}</td>
+              </tr>
+            </tbody>
+          </table>
 
-  <ng-container>
-    <table class="table-view">
-      <thead>
-        <tr class="table-row">
-          <th class="header">Title and Sub Title</th>
-          <th class="header">Author</th>
-          <th class="header">First Publish Year</th>
-        </tr>
-      </thead>
-      <tbody class="table-body">
-        <tr *ngFor="let book of booksList" class="row-data">
-          <td>
-            <a class="tw-no-underline" href="https://openlibrary.org{{ book.key }}" target="_blank">{{ book.title }}</a>
-          </td>
-          <td>
-            {{ book.authors.length > 0 ? book.authors[0].name : "Unknown" }}
-          </td>
-          <td>{{ book.first_publish_year }}</td>
-        </tr>
-      </tbody>
-    </table>
-  </ng-container>
-</div>
+        
+
+          <!-- <div class="paging-container">
+            <a (click)="previous()" class="prev">&lt;</a>
+            <div *ngFor="let item of [].constructor(totalPages); let i = index" ><a class="page active" (click)="pageIndexed(i+1)">{{i+1}}</a></div>
+            <a (click)="next()" class="next">&gt;</a>
+            
+          </div> -->
+          <div class="paging-container">
+          <div *ngFor="let item of [].constructor(totalPages)| paginate: { itemsPerPage: tableSize, currentPage:page , totalItems:count } ; let i = index ">
+          </div>
+          <pagination-controls previousLabel="Prev" (pageChange)="onTableDataChange($event)" nextLabel="Next"  class="float-right"></pagination-controls>
+         </div> 
+          <div class="tw-m-24-px">
+            <div class="tw-mb-24-px tw-text-24-px">
+              <div button class="back" (click)="goToHome()">Back</div>
+              </div>
+             </div>
+       </ng-container>   
+      </div>
+
+
+
+

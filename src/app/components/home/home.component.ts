@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { debounceTime, filter } from 'rxjs';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'front-end-internship-assignment-home',
@@ -10,9 +12,11 @@ import { debounceTime, filter } from 'rxjs';
 export class HomeComponent implements OnInit {
   bookSearch: FormControl;
 
-  constructor() {
+  constructor(private router: Router) {
     this.bookSearch = new FormControl('');
   }
+  
+  
 
   trendingSubjects: Array<any> = [
     { name: 'JavaScript' },

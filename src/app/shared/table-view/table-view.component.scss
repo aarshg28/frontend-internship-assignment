@@ -1,4 +1,5 @@
 .table-view {
+  margin-top: 20px;
   @apply
   tw-w-full
   tw-overflow-hidden
@@ -48,3 +49,94 @@
     tw-border-light-border
   }
 }
+
+.search-container {
+  float: right;
+  display: flex;
+  justify-content: center;
+  margin-bottom : 20px;
+}
+
+.search-container input[type="text"] {
+  padding: 10px;
+  width: 200px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+}
+
+.search-container button {
+  padding: 10px 20px;
+  background-color: gray;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.search-container button:hover {
+  background-color: gray;
+}
+
+.paging-container {
+  float: right;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.paging-container a {
+  text-decoration: none;
+  color: #333;
+  padding: 8px 16px;
+  margin: 0 4px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.paging-container a:hover {
+  background-color: #eee;
+}
+
+.paging-container .active {
+  background-color:gray;
+  color: white;
+  font-weight: bold;
+}
+
+.paging-container .prev,
+.paging-container .next {
+  background-color: #f2f2f2;
+  font-size: 18px;
+  padding: 8px 12px;
+  border-radius: 50%;
+  margin: 0 4px;
+  transition: background-color 0.3s;
+}
+
+.paging-container .prev:hover,
+.paging-container .next:hover {
+  background-color: #ccc;
+}
+
+.back
+{
+  float: left;
+  display: flex;
+  justify-content: center;
+  margin-bottom : 20px;
+  padding: 10px 20px ;
+  background-color: gray;
+  color: white;
+  border-radius: 4px;
+ 
+}
+
+table {
+  width: 100%;
+}
+
+

@@ -2,6 +2,7 @@ import { Inject, Injectable, } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpRequestOptions } from '../models/http-request-options.model';
 import { HttpClient } from '@angular/common/http';
+import {  HttpHeaders} from '@angular/common/http';
 
 const ROOT_URL = 'https://openlibrary.org';
 
